@@ -21,12 +21,15 @@ def getActivitiesResponse():
 def postUserSessions(user_sessions):
    '''Post the resulting user_sessions to slang web page.'''
 
-   requests.post(
-      "https://api.slangapp.com/challenges/v1/sessions",
+   print(user_sessions)
+
+   user_session_response = requests.post(
+      "https://api.slangapp.com/challenges/v1/activities/sessions",
       headers={"Authorization": TOKEN},
       json=user_sessions
       )
 
+   print(f"The status code posting the user_sessions was: {user_session_response.status_code}")
    print("Done! :)")
 
 def postUserSessionsFake(user_sessions):
